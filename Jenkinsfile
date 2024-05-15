@@ -22,7 +22,7 @@ pipeline {
                 echo 'Starting Deploy Stage'
                 script {
 
-                    bat "curl \target\*.war \"http://localhost:8081/manager/text/deploy?path=/webapp&update=true\" --user admin:admin"
+                    bat "curl \target\*.war "http://localhost:8081/manager/text/deploy?path=/webapp&update=true\" --user admin:admin"
                 }
                 echo 'Deploy Stage Completed'
             }
