@@ -1,6 +1,5 @@
 pipeline {
-    agent any
-    stages {        
+    agent any      
         stage('Build') {
             withMaven {
                 // Build the project with Maven
