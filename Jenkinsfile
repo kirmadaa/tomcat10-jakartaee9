@@ -19,8 +19,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'copy /y .\\target\\*.war C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps'
-                }
+                echo 'Starting Deploy Stage'
+                bat 'copy /y .\\target\\*.war "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps"'
                 echo 'Deploy Stage Completed'
             }
         }
