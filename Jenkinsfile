@@ -21,8 +21,8 @@ pipeline {
             steps {
                 echo 'Starting Deploy Stage'
                 script {
-
-                    bat "curl \target\*.war "http://localhost:8081/manager/text/deploy?path=/webapp&update=true\" --user admin:admin"
+                    def warFile = bat(script: 'for %i in (target\\*.war) do @echo %i', returnStdout: true).trim()
+                    bat "curl --upload-file ${warFile} \"http://localhost:8081/manager/text/deploy?path=/webapp&update=true\" --user admin:admin"
                 }
                 echo 'Deploy Stage Completed'
             }
