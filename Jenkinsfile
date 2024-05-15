@@ -19,10 +19,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Starting Deploy Stage'
-                script {
-                    def warFile = bat(script: 'for %i in (target\\*.war) do @echo %i', returnStdout: true).trim()
-                    bat "curl --upload-file ${warFile} \"http://localhost:8081/manager/text/deploy?path=/webapp&update=true\" --user admin:admin"
+                bat 'copy /y .\\target\\*.war C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps'
                 }
                 echo 'Deploy Stage Completed'
             }
