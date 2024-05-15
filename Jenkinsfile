@@ -1,13 +1,6 @@
 pipeline {
     agent any
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from the provided Git repository
-                git 'git@github.com:kirmadaa/tomcat10-jakartaee9.git'
-            }
-        }
-        
+    stages {        
         stage('Build') {
             steps {
                 // Build the project with Maven
